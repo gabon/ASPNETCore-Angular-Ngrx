@@ -16,5 +16,5 @@ variables:
 steps:
 - script: dotnet build --configuration $(buildConfiguration) server/ASP.NETCore/FoodAPICore.sln
   displayName: 'dotnet build $(buildConfiguration)'
-- script: dotnet publish --configuration -output $(artifactstagingdirectory) $(buildConfiguration) server/ASP.NETCore/FoodAPICore.sln
+- script: dotnet publish --configuration $(buildConfiguration) --output $(artifactstagingdirectory)  server/ASP.NETCore/FoodAPICore.sln
   displayName: 'dotnet publish $(buildConfiguration)'
