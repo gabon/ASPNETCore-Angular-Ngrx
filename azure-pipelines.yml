@@ -11,7 +11,10 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
+  artifactstagingdirectory: 'Release'
 
 steps:
 - script: dotnet build --configuration $(buildConfiguration) server/ASP.NETCore/FoodAPICore.sln
   displayName: 'dotnet build $(buildConfiguration)'
+- script: dotnet publish --configuration -output $(artifactstagingdirectory) $(buildConfiguration) server/ASP.NETCore/FoodAPICore.sln
+  displayName: 'dotnet publish $(buildConfiguration)'
